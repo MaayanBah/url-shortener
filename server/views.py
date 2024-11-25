@@ -2,6 +2,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 from .models import Url
+from django.shortcuts import get_object_or_404, redirect
 
 
 @api_view(["POST"])
@@ -35,6 +36,16 @@ def shorten_url(request):
             },
             status=status.HTTP_200_OK,
         )
+
+    except Exception as e:
+        return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+
+@api_view(["GET"])
+def redirect_to_original_url(request, short_code):
+    try:
+        url_obj = get_object_or_404(Url, shortened_url=short_code)
+        return redirect(url_obj.url)
 
     except Exception as e:
         return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
