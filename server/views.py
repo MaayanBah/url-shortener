@@ -1,14 +1,7 @@
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
-import hashlib
-
-
-def shorten(url: str) -> str:
-    hash_object = hashlib.sha256(url.encode())
-    hex_digest = hash_object.hexdigest()
-
-    return hex_digest[:6]
+from .models import Url
 
 
 @api_view(["POST"])
@@ -20,15 +13,25 @@ def shorten_url(request):
             return Response(
                 {"error": "URL not provided"}, status=status.HTTP_400_BAD_REQUEST
             )
-        short_code = shorten(url)
-        host = request.get_host()
-        short_url = f"http://{host}/{short_code}"
 
-        # TODO change to redirect
+        existing_url = Url.objects.filter(url=url).first()
+        if existing_url:
+            short_url = f"http://{request.get_host()}/{existing_url.shortened_url}"
+            return Response(
+                {
+                    "short_url": short_url,
+                    "short_code": existing_url.shortened_url,
+                },
+                status=status.HTTP_200_OK,
+            )
+
+        new_url = Url.create(url)
+        short_url = f"http://{request.get_host()}/{new_url.shortened_url}"
+
         return Response(
             {
                 "short_url": short_url,
-                "short_code": short_code,
+                "short_code": new_url.shortened_url,
             },
             status=status.HTTP_200_OK,
         )
