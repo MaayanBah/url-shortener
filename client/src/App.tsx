@@ -1,10 +1,14 @@
-import { Heading, VStack } from "@chakra-ui/react";
+import { Heading, HStack, VStack } from "@chakra-ui/react";
+import ColorModeSwitch from "./components/colorModeSwitch";
 
 function App() {
   return (
     <div>
       <VStack paddingTop={5}>
-        <Heading size="2xl">URL Shortener</Heading>
+        <HStack>
+          <Heading size="2xl">URL Shortener</Heading>
+          <ColorModeSwitch />
+        </HStack>
       </VStack>
     </div>
   );
