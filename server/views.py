@@ -43,9 +43,5 @@ def shorten_url(request):
 
 @api_view(["GET"])
 def redirect_to_original_url(request, short_code):
-    try:
-        url_obj = get_object_or_404(Url, shortened_url=short_code)
-        return redirect(url_obj.url)
-
-    except Exception as e:
-        return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+    url_obj = get_object_or_404(Url, shortened_url=short_code)
+    return redirect(url_obj.url)
