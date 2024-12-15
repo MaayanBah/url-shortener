@@ -17,12 +17,27 @@ const SearchCard = () => {
   const { shortenUrl, error } = useShorten(searchText);
 
   return (
-    <Card bg={cardBgColor} marginTop={6} padding={4}>
+    <Card
+      bg={cardBgColor}
+      marginTop={6}
+      padding={4}
+      width={["90%", "80%", "50%"]}
+    >
       <CardHeader>
         <Text fontSize="2xl">Paste the URL to be shortened</Text>
       </CardHeader>
       <CardBody>
         <SearchInput onSearch={(text) => setSearchText(text)} />
+        {searchText && (
+          <>
+            <Text marginTop={5} fontSize="lg">
+              Long URL:
+            </Text>
+            <Link href={searchText} target="_blank" color="teal.500">
+              {searchText}
+            </Link>
+          </>
+        )}
         {shortenUrl && (
           <>
             <Text marginTop={5} fontSize="lg">
