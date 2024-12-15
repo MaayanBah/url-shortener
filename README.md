@@ -2,8 +2,6 @@
 
 This project is a simple URL shortener built with Django, Django Rest Framework and React. The API allows you to shorten a given URL and retrieve the original URL using the shortened code.
 
-<img src="https://github.com/MaayanBah/url-shortener/blob/6167b691e9142a185f0248a83273f9b832dead82/screenshots/dark_mode.png" alt="Image Alt Text" width="400"/>
-
 <img src="https://github.com/MaayanBah/url-shortener/blob/6167b691e9142a185f0248a83273f9b832dead82/screenshots/light_mode.png" alt="Image Alt Text" width="400"/>
 
 <img src="https://github.com/MaayanBah/url-shortener/blob/6167b691e9142a185f0248a83273f9b832dead82/screenshots/usage.png" alt="Image Alt Text" width="400"/>
