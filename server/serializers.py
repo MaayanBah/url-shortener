@@ -3,6 +3,8 @@ from .models import Url
 
 
 class UrlSerializer(serializers.ModelSerializer):
+    url = serializers.URLField()
+
     class Meta:
         model = Url
-        fields = ["url", "shortened_url"]
+        fields = ["url"]
