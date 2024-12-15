@@ -7,7 +7,7 @@ admin.site.index_title = "Admin"
 
 @admin.register(models.Url)
 class UrlAdmin(admin.ModelAdmin):
-    list_display = ["url", "shortened_url"]
+    list_display = ["url", "shortened_code"]
     actions = ["delete_selected_urls"]
 
     @admin.action(description="Delete selected URLs")

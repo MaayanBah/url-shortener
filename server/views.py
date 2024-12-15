@@ -16,22 +16,22 @@ def shorten_url(request):
 
             existing_url = Url.objects.filter(url=url).first()
             if existing_url:
-                short_url = f"http://{request.get_host()}/{existing_url.shortened_url}"
+                short_url = f"http://{request.get_host()}/{existing_url.shortened_code}"
                 return Response(
                     {
                         "short_url": short_url,
-                        "short_code": existing_url.shortened_url,
+                        "short_code": existing_url.shortened_code,
                     },
                     status=status.HTTP_200_OK,
                 )
 
             new_url = Url.create(url)
-            short_url = f"http://{request.get_host()}/{new_url.shortened_url}"
+            short_url = f"http://{request.get_host()}/{new_url.shortened_code}"
 
             return Response(
                 {
                     "short_url": short_url,
-                    "short_code": new_url.shortened_url,
+                    "short_code": new_url.shortened_code,
                 },
                 status=status.HTTP_200_OK,
             )
@@ -44,5 +44,5 @@ def shorten_url(request):
 
 @api_view(["GET"])
 def redirect_to_original_url(request, short_code):
-    url_obj = get_object_or_404(Url, shortened_url=short_code)
+    url_obj = get_object_or_404(Url, shortened_code=short_code)
     return redirect(url_obj.url)

@@ -4,7 +4,7 @@ import hashlib
 
 class Url(models.Model):
     url = models.URLField(unique=True)
-    shortened_url = models.CharField(max_length=6, unique=True)
+    shortened_code = models.CharField(max_length=6, unique=True)
 
     def __str__(self) -> str:
         return self.url
@@ -17,5 +17,5 @@ class Url(models.Model):
 
     @classmethod
     def create(cls, url: str):
-        shortened_url = cls.shorten(url)
-        return cls.objects.create(url=url, shortened_url=shortened_url)
+        shortened_code = cls.shorten(url)
+        return cls.objects.create(url=url, shortened_code=shortened_code)
