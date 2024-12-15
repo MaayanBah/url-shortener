@@ -14,7 +14,7 @@ This project is a simple URL shortener built with Django, Django Rest Framework 
 - Frontend: implemented with React
 - Admin Site: Modified to enable the admin to view, manage, and delete shortened URLs directly through the Django admin interface.
 
-  <img src="https://github.com/MaayanBah/url-shortener/blob/6167b691e9142a185f0248a83273f9b832dead82/screenshots/light_mode.png" alt="Image Alt Text" width="400"/>
+  <img src="https://github.com/MaayanBah/url-shortener/blob/6167b691e9142a185f0248a83273f9b832dead82/screenshots/admin.png" alt="Image Alt Text" width="400"/>
 
 ## API Endpoints
 
