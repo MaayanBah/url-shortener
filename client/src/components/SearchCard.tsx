@@ -14,7 +14,7 @@ const SearchCard = () => {
   const cardBgColor = useColorModeValue("gray.200", "gray.700");
   //   const cardHoverBgColor = useColorModeValue("gray.200", "gray.600");
   const [searchText, setSearchText] = useState<string>("");
-  const { shortenUrl } = useShorten(searchText);
+  const { shortenUrl, error } = useShorten(searchText);
 
   return (
     <Card bg={cardBgColor} marginTop={6} padding={4}>
@@ -33,6 +33,7 @@ const SearchCard = () => {
             </Link>
           </>
         )}
+        {error && <Text>{error}</Text>}
       </CardBody>
     </Card>
   );
