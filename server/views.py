@@ -25,7 +25,7 @@ def shorten_url(request):
                     status=status.HTTP_200_OK,
                 )
 
-            new_url = Url.objects.create(url)
+            new_url = Url.create(url)
             short_url = f"http://{request.get_host()}/{new_url.shortened_url}"
 
             return Response(
