@@ -7,7 +7,9 @@ function App() {
     <div>
       <VStack paddingTop={5}>
         <HStack>
-          <Heading size="2xl">URL Shortener</Heading>
+          <Heading fontFamily="heading" size="2xl">
+            URL Shortener
+          </Heading>
           <ColorModeSwitch />
         </HStack>
         <SearchCard />
