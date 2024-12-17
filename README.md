@@ -4,7 +4,7 @@ This project is a simple URL shortener built with Django, Django Rest Framework 
 
 <img src="https://github.com/MaayanBah/url-shortener/blob/6167b691e9142a185f0248a83273f9b832dead82/screenshots/light_mode.png" alt="Image Alt Text" width="400"/>
 
-<img src="https://github.com/MaayanBah/url-shortener/blob/6167b691e9142a185f0248a83273f9b832dead82/screenshots/usage.png" alt="Image Alt Text" width="400"/>
+<img src="https://github.com/MaayanBah/url-shortener/blob/704134076467088982ea742e4ff9d1680d5c29f5/screenshots/usage.png" alt="Image Alt Text" width="400"/>
 
 ## Features
 
