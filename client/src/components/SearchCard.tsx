@@ -41,7 +41,7 @@ const SearchCard = () => {
         {shortenUrl && (
           <>
             <Text marginTop={5} fontSize="lg">
-              Shorten URL:
+              Shortened URL:
             </Text>
             <Link href={shortenUrl} target="_blank" color="teal.500">
               {shortenUrl}
